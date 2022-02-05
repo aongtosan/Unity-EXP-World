@@ -16,7 +16,7 @@ public class CrateController : MonoBehaviour
         area.transform.parent = transform;
         area.transform.localPosition = Vector3.zero;
         area.transform.rotation = new Quaternion(0, 0, 0, 0);
-        area.DrawCircle(box.bounds.size.x,0.1f);
+        area.drawRectangle(box.bounds.size.x,box.bounds.size.z, 0.1f);
     }
 
     // Update is called once per frame
