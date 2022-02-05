@@ -31,10 +31,11 @@ public static class GameObjectEfx
         line.endWidth = width;
         line.startColor = new Color(255, 255, 255);
         line.endColor = new Color(255, 255, 255);
-        line.positionCount = 4;
-        line.SetPosition(0,new Vector3(wBox,0,-hbox));
-        line.SetPosition(3, new Vector3(wBox, 0, hbox));
-        line.SetPosition(1, new Vector3(-wBox , 0, -hbox));
-        line.SetPosition(2, new Vector3(-wBox, 0, hbox));
+        line.positionCount = 5;
+        line.SetPosition(0,new Vector3(-wBox,0,hbox));
+        line.SetPosition(1, new Vector3(wBox, 0, hbox));
+        line.SetPosition(2, new Vector3(wBox , 0, -hbox));
+        line.SetPosition(3, new Vector3(-wBox, 0, -hbox));
+        line.SetPosition(4, new Vector3(-wBox, 0, hbox));
     }
 }
