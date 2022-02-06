@@ -7,24 +7,28 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     float speed;
-    BoxCollider box;
-    void Start()
+    Animator player_animator;
+    void Awake()
     {
-        box = GetComponent<BoxCollider>();
-        GameObject player_block = new GameObject("player-box");
-        player_block.transform.parent = transform;
-        player_block.transform.localPosition = Vector3.zero;
-        player_block.transform.rotation = new Quaternion(0, 0, 0, 0);
-        player_block.drawRectangle(box.bounds.size.x, box.bounds.size.z, 0.2f);
-
-
+        GameObject playerCha = transform.GetChild(0).gameObject;
+        player_animator = playerCha.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 position = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        transform.position += position * speed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        if (horizontal > 0f || horizontal <0 || vertical > 0f || vertical <0f)
+        {
+            Vector3 position = new Vector3(horizontal, 0, vertical);
+            transform.position += position * speed * Time.deltaTime;
+            player_animator.SetBool("walk", true);
+        }
+        else
+        {
+            player_animator.SetBool("walk", false);
+        }
         
     }
 }
